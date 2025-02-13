@@ -3,7 +3,7 @@
         <div class="col-md-3 cerceve">
             <ul>
                 <li (click)="changeCategory('', 'Tümü')" [ngClass]="request.categoryName == 'Tümü' ? 'active' : ''">Tümü</li>
-                <li (click)="changeCategory(category._id, category.name)" [ngClass]="request.categoryName == category.name ? 'active' : ''" *ngFor="let category of categories">
+                <li (click)="changeCategory(category.id, category.name)" [ngClass]="request.categoryName == category.name ? 'active' : ''" *ngFor="let category of categories">
                     {{ category.name }}
                 </li>
             </ul>
@@ -37,11 +37,11 @@
                             <h1>{{ product.name }}</h1>
                         </div>
                         <div class="card-body">
-                            <img [src]="'http://localhost:5000' + product.imageUrls[0].path" alt="" width="200" height="160">
+                            <img [src]="'http://127.0.0.1:8000/' + product.imageUrls" alt="" width="200" height="160">
                             <p><strong>Kalan Adet: {{ product.stock }}</strong></p>
                             <hr>
                             <h4 class="alert alert-danger">Adet Fiyatı: {{ product.price | trCurrency : '₺' }}</h4>
-                            <button (click)="addBasket(product._id, product.price)" *ngIf="product.stock > 0" class="btn-outline-success w-100">Sepete Ekle</button>
+                            <button (click)="addBasket(product.id, product.price)" *ngIf="product.stock > 0" class="btn-outline-success w-100">Sepete Ekle</button>
                         </div>
                     </div>
                 </div>

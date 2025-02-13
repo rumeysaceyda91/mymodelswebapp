@@ -1,7 +1,7 @@
 import { ProductModel } from "../../products/models/product.model";
 
 export class OrderModel{
-    _id: string = "";
+    id: string = "";
     productId: string = "";
     products: ProductModel[] = [];
     price: number = 0;

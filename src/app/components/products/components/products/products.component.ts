@@ -32,6 +32,7 @@ export class ProductsComponent implements OnInit {
   {
      this.request.pageNumber = pageNumber;
      this._product.getAll(this.request, res=>{
+      console.log(res)
         this.result = res;
      })
   }

@@ -58,7 +58,7 @@ export class CategoriesComponent implements OnInit {
 
   removeById(model: CategoryModel){
     this._swal.callSwal(`${model.name} kategorisini silmek istiyor musunuz`,"","Sil",()=>{
-      this._category.removeById(model._id,res=>{
+      this._category.removeById(model.id,res=>{
         this._toastr.info(res.message);
         this.getAll();
       })

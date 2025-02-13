@@ -5,7 +5,7 @@
                 <tr *ngFor="let basket of baskets let index = index">
                     <td>{{ index + 1 }}</td>
                     <td>
-                        <img [src]="'http://localhost:5000/' + basket?.products[0]?.imageUrls[0].path" width="50" />
+                        <img [src]="'http://127.0.0.1:8000/' + basket?.products[0]?.imageUrls" width="50" />
                     </td>
                     <td>{{ basket?.products[0]?.name }}</td>
                     <td>{{ basket.quantity }}</td>
@@ -15,7 +15,7 @@
                         <button class="btn btn-outline-warning btn-sm" title="Güncelle">
                             <i class="fa fa-edit"></i>
                         </button>
-                        <button (click)="removeById(basket._id)" class="btn btn-outline-danger btn-sm mx-1" title="Sil">
+                        <button (click)="removeById(basket.id)" class="btn btn-outline-danger btn-sm mx-1" title="Sil">
                             <i class="fa fa-trash"></i>
                         </button>
                     </td>

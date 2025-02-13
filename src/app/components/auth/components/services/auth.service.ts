@@ -15,10 +15,10 @@ export class AuthService {
 
   login(model: LoginModel, callBack: (res: LoginResponseModel) => void)
   {
-    this._http.post<LoginResponseModel>("auth/login", model, res => callBack(res));
+    this._http.post<LoginResponseModel>("login", model, res => callBack(res));
   }
   register(model:RegisterModel, callBack: (res: LoginResponseModel) => void)
   {
-    this._http.post<LoginResponseModel>("auth/register", model, res => callBack(res));
+    this._http.post<LoginResponseModel>("register", model, res => callBack(res));
   }
 }

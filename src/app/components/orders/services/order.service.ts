@@ -15,7 +15,7 @@ export class OrderService {
   {
     let userStr = localStorage.getItem("user");
     let user = JSON.parse(userStr);
-    let model = {userId: user._id};
+    let model = {userId: user.id};
     this._http.post<MessageResponseModel>("orders/create", model, res => {
         this._basket.getCount();
         callBack(res);
@@ -26,7 +26,7 @@ export class OrderService {
   {
     let userStr = localStorage.getItem("user");
     let user = JSON.parse(userStr);
-    let model = {userId: user._id};
+    let model = {userId: user.id};
     this._http.post<OrderModel[]>("orders", model, res => {
         callBack(res);
     });

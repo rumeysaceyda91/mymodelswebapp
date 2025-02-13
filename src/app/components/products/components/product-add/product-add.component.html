@@ -12,7 +12,7 @@
                 <div class="form-group mt-2">
                     <label for="categories">Kategoriler</label>
                     <select class="form-control" name="categoriesSelect" id="categoriesSelect" ngModel multiple #categoriesSelect>
-                        <option *ngFor="let category of categories" [value]="category._id">
+                        <option *ngFor="let category of categories" [value]="category.id">
                             {{ category.name }}
                         </option>
                     </select>
