@@ -2,7 +2,7 @@ import { CategoryModel } from "../../categories/models/category.model";
 
 export class ProductModel
 {
-    id: string = "";
+    id: number = 0;
     name: string = "";
     categories: CategoryModel[] = [];
     stock: number = 0;

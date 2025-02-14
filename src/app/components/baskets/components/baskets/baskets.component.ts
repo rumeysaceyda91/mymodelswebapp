@@ -38,11 +38,11 @@ export class BasketsComponent implements OnInit {
     });
   }
 
-  removeById(_id: string)
+  removeById(id: number)
   {
     this._swal.callSwal("Ürünü sepetten silmek istiyor musunuz?", "Ürünü Sil", "Sil",() =>
     {
-      let model = {_id: _id};
+      let model = {id: id};
       this._basket.removeById(model, res => {
         this._toastr.info(res.message);
         this.getAll();

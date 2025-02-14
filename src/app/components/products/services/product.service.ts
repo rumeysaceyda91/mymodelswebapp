@@ -27,9 +27,8 @@ export class ProductService {
       this._http.post<PaginationResultModel<ProductModel[]>>("products/", model, res => callBack(res));
   }
 
-  removeById(model: any, callBack: (res: MessageResponseModel) => void)
-  {
-      this._http.post<MessageResponseModel>("products/removeById", model, res => callBack(res));
+  removeById(id: number, callBack: (res: MessageResponseModel)=> void){
+    this._http.post<MessageResponseModel>("products/removeById/" + id, id, res=> callBack(res));
   }
 
   changeActiveStatus(model: any, callBack: (res: MessageResponseModel) => void)
@@ -42,9 +41,9 @@ export class ProductService {
       this._http.post<ProductModel>("products/getById", model, res => callBack(res));
   }
 
-  removeImageByProductIdAndIndex(model: any, callBack: (res: ProductModel) => void)
+  removeImageByProductIdAndIndex(model: any, callBack: (res: MessageResponseModel) => void)
   {
-      this._http.post<ProductModel>("products/removeImageByProductIdAndIndex", model, res => callBack(res));
+      this._http.post<MessageResponseModel>("products/removeImageByProductIdAndIndex", model, res => callBack(res));
   }
 
   getAllForHomePage(model: RequestModel, callBack: (res: ProductModel[]) => void)

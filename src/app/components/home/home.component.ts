@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
       this.getAll();
   }
 
-  addBasket(productId: string, price: number)
+  addBasket(productId: number, price: number)
   {
     let model = new BasketModel();
     model.productId = productId;

@@ -10,7 +10,7 @@ export class SwalService {
 
   callSwal(text: string, title: string, btnName: string, callBack: () => void)
   {
-    Swal.fire,
+    Swal.fire
     ({
       text: text,
       title: title,
@@ -19,6 +19,10 @@ export class SwalService {
       cancelButtonText: "Vazgeç",
       showCancelButton: true,
       icon: "question"
+    }).then(res => {
+      if(res.isConfirmed){
+        callBack();
+      }
     });
   }
 }
