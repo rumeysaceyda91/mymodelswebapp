@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-3 cerceve">
             <ul>
-                <li (click)="changeCategory('', 'Tümü')" [ngClass]="request.categoryName == 'Tümü' ? 'active' : ''">Tümü</li>
+                <li (click)="changeCategory(0, 'Tümü')" [ngClass]="request.categoryName == 'Tümü' ? 'active' : ''">Tümü</li>
                 <li (click)="changeCategory(category.id, category.name)" [ngClass]="request.categoryName == category.name ? 'active' : ''" *ngFor="let category of categories">
                     {{ category.name }}
                 </li>

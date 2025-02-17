@@ -16,15 +16,15 @@ export class BasketService {
   getAll(callBack: (res: BasketModel[])=> void){
     let userString = localStorage.getItem("user");
     let user = JSON.parse(userString);
-    let model = {userId: user._id};
+    let model = {userId: user.id};
     this._http.post<BasketModel[]>("baskets",model, res=> callBack(res));
   }
 
   getCount(){
-    let userString = localStorage.getItem("user");
-    let user = JSON.parse(userString);
-    let model = {userId: user._id};
-    (user != '' ) ? this._http.post<any>("baskets/getCount",model, res=> this.count = res.count) : this.count = 0;
+      let userString = localStorage.getItem("user");
+      let user = JSON.parse(userString);
+      let model = {userId: user.id};
+      this._http.post<any>("baskets/getCount",model, res=> this.count = res.count);
   }
 
   add(model:BasketModel, callBack: (res: MessageResponseModel)=> void){

@@ -11,11 +11,8 @@ export class OrderService {
 
   constructor(private _http: GenericHttpService, private _basket: BasketService) { }
 
-  create(callBack: (res: MessageResponseModel) => void)
+  create(model:any, callBack: (res: MessageResponseModel) => void)
   {
-    let userStr = localStorage.getItem("user");
-    let user = JSON.parse(userStr);
-    let model = {userId: user.id};
     this._http.post<MessageResponseModel>("orders/create", model, res => {
         this._basket.getCount();
         callBack(res);

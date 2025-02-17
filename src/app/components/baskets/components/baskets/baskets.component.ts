@@ -52,8 +52,12 @@ export class BasketsComponent implements OnInit {
 
   createOrder()
   {
-    this._swal.callSwal("Ürünleri almak istiyor musunuz?", "Ürünleri Al", "Ödeme Yap", () => {
-      this._order.create(res => {
+    this._swal.callSwal("Ürünleri almak istiyor musunuz?", "Ürünleri Al", "Ödeme Yap", () => 
+    {
+      let userStr = localStorage.getItem("user");
+      let user = JSON.parse(userStr);
+      let model = {userId: user.id, baskets: this.baskets};
+      this._order.create(model, res => {
           this._toastr.success(res.message);
           this.getAll();
       });

@@ -9,10 +9,10 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/">Ana Sayfa</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="user != ''" class="nav-item">
             <a class="nav-link" routerLink="/orders">Siparişlerim</a>
           </li>
-          <li class="nav-item dropdown">
+          <li *ngIf="user != ''" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Ürünler
             </a>
@@ -24,11 +24,12 @@
         </ul>
         <button routerLink="/baskets" type="button" class="btn btn-outline-success position-relative">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span class="position-absolute top-100 start-0 translate-middle badge rounded-pill bg-danger">
+            <span *ngIf="user != ''" class="position-absolute top-100 start-0 translate-middle badge rounded-pill bg-danger">
               {{ _basket.count }}
             </span>
         </button>
-        <button class="btn btn-outline-danger mx-1" type="button">Çıkış Yap</button>
+        <button *ngIf="user != ''" (click)="logout()" class="btn btn-outline-danger mx-1" type="button">Çıkış Yap</button>
+        <button *ngIf="user == ''" routerLink="/login" class="btn btn-outline-danger mx-1" type="button">Giriş Yap</button>
       </div>
     </div>
   </nav>

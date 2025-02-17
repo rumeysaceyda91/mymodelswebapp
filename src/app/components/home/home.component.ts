@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     this._category.getAll(res => this.categories = res);
   }
 
-  changeCategory(categoryId: string, categoryName: string)
+  changeCategory(categoryId: number, categoryName: string)
   {
       this.request.categoryName = categoryName;
       this.request.categoryId = categoryId;
