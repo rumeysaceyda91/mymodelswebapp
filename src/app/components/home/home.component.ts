@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
   getAll()
   {
-      this._product.getAllForHomePage(this.request, res => {console.log(res); this.products = res});
+      this._product.getAllForHomePage(this.request, res => {this.products = res});
   }
 
   getCategories()

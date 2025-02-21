@@ -3,6 +3,8 @@ import { GenericHttpService } from '../../../common/services/generic-http.servic
 import { MessageResponseModel } from '../../../common/models/message.response.model';
 import { BasketService } from '../../baskets/services/basket.service';
 import { OrderModel } from '../models/order.model';
+import { OrderProductModel } from '../models/order-product.model';
+import { ProductModel } from '../../products/models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +21,14 @@ export class OrderService {
     });
   }
 
-  getAll(callBack: (res: OrderModel[]) => void)
+  getAll(callBack: (res: OrderProductModel) => void)
   {
     let userStr = localStorage.getItem("user");
     let user = JSON.parse(userStr);
     let model = {userId: user.id};
-    this._http.post<OrderModel[]>("orders", model, res => {
+    this._http.post<OrderProductModel>("orders", model, res => {
         callBack(res);
+        console.log(res)
     });
   }
 }

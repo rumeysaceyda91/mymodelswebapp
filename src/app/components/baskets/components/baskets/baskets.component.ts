@@ -5,6 +5,8 @@ import { BasketService } from '../../services/basket.service';
 import { ToastrService } from 'ngx-toastr';
 import { SwalService } from '../../../../common/services/swal.service';
 import { OrderService } from '../../../orders/services/order.service';
+import { BasketProductModel } from '../../models/basket-product.model';
+import { ProductModel } from '../../../products/models/product.model';
 
 @Component({
   selector: 'app-baskets',
@@ -13,7 +15,9 @@ import { OrderService } from '../../../orders/services/order.service';
   styleUrl: './baskets.component.css'
 })
 export class BasketsComponent implements OnInit {
-  baskets: BasketModel[] = [];
+  results: BasketProductModel = new BasketProductModel();
+  baskets: BasketModel[];
+  products: ProductModel[];
   sum: number = 0;
 
   constructor(private _basket: BasketService, private _toastr: ToastrService, private _swal: SwalService, private _order: OrderService){}
@@ -25,7 +29,8 @@ export class BasketsComponent implements OnInit {
   getAll()
   {
     this._basket.getAll(res => {
-      this.baskets = res;
+      this.baskets = res.baskets;
+      this.products = res.products;
       this.calculate();
     });
   }
